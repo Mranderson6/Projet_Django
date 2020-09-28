@@ -7,6 +7,6 @@
 {% for contact in contacts %}
 <h2>{{ contact.nom }}</h2>
 Adresse : {{ contact.addresse|linebreaks }}<br/>
-<img src="{{ MEDIA_URL }}{{ contact.photo }}"/>
+<img src="/Media/{{contact.photo}}"/>
 {% endfor %}
 {% endblock %}
