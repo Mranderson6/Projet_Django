@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% load static %}
+	<link rel="stylesheet" href="{%static 'blog/CSS/Style.css'%}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+ {% block title %}	<title>Blog</title> {% endblock %}
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="wrapper">
+				<a href="{% url 'index' %}" class="navbar-brand">FTD</a>
+			<ul class="navbar-right">
+				<li><a href="{% url 'index' %}">Accueil</a> </li>
+				<li><a href="{% url 'home' %}">Blog</a> </li>
+				<li><a href="{% url 'sign_in' %}">Se connecter</a></li>
+			</ul>
+		</div>
+	</nav>
+	   <div class="titre_page">
+		   {% block nav %}
+		           <h1 class="text-center">Bienvenue sur le Blog de FTD</h1>
+		       {%for article in derniers_articles%}
+					<div class="article">
+						<h3>{{article.titre}}</h3>
+						<p>{{article.contenu| truncatewords_html:80}}</p>
+						<p><a href="{%url 'article' article.id  %}">Lire la suite...</a> </p>
+					</div>
+
+		        {% endfor %}
+		   {% endblock %}
+
+	   </div>
+
+
+
+		<footer class="footer">
+			<p>&copy; Copyright {% now 'Y' %}  TFD  All rights reserved!!!!</p>
+		</footer>
+
+
+</body>
+</html>

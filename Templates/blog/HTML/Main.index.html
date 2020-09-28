@@ -1,0 +1,38 @@
+{% extends "blog/HTML/structuration.html" %}
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    {% load static %}
+	<link rel="stylesheet" href="{%static 'blog/CSS/style.css'%}">
+ {% block title %}	<title>First_Test_Django</title> {% endblock %}
+    </head>
+<body>
+
+    {% block nav %}
+        <h1 class="h1_center">Page d'Acceuil FTD</h1>
+	<h2>Nos auteurs</h2>
+    {%for article in derniers_articles%}
+					<div class="article">
+						<h3>{{article.auteur}}</h3>
+					</div>
+					  {% empty %}
+					<p>Aucun article {{ article.auteur }}</p>
+    {% endfor %}
+<br>
+
+<h2>Nos Articles</h2>
+    {%for article in derniers_articles%}
+					<div class="article">
+						<h3>{{article.titre}}</h3>
+						<p>{{article.contenu| truncatewords_html:80}}</p>
+						<p><a href="{%url 'article' article.id %}">Lire la suite...</a> </p>
+					</div>
+
+
+    {% endfor %}
+    {% endblock %}
+
+
+</body>
+</html>

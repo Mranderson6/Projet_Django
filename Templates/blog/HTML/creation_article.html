@@ -1,0 +1,13 @@
+{% extends "blog/HTML/structuration.html" %}
+
+{% block title %} <title>Creation d'article</title>  {% endblock %}
+
+
+{% block nav %}
+     {% if envoi %}Votre article a ete cree  !{% endif %}
+<form action="{% url 'Article_Formu' %}" method="post">
+    {% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}

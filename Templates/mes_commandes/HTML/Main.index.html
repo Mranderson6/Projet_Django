@@ -1,0 +1,21 @@
+{% extends "blog/HTML/structuration.html" %}
+
+ {% block title %}	<title>Nos commandes</title> {% endblock %}
+
+
+    {% block nav %}
+        <h1 class="h1_center">Commande</h1>
+	<h2>Nos commandes</h2>
+    {%for order in orders %}
+					<div class="article">
+						<h3>{{order.code}}</h3>
+
+					</div>
+					  {% empty %}
+					<p>Aucune commande {{ order.nom }}</p>
+    {% endfor %}
+
+
+
+    {% endblock %}
+

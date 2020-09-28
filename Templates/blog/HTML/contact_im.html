@@ -1,0 +1,12 @@
+{%extends "blog/HTML/structuration.html"%}
+
+{% block title %}	<title>Formulaire contact avec Image</title> {% endblock %}
+
+ {% block nav %}
+    {% if sauvegarde %}Votre contact a bien été envoyé !{% endif %}
+<form action="{% url 'nouveau_contact' %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+ {% endblock %}

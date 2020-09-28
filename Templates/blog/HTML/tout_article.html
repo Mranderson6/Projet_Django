@@ -1,0 +1,15 @@
+{% extends "blog/HTML/structuration.html"%}
+
+
+ {% block title %}  <title>Tout les Articles </title> {% endblock %}
+
+    {% block nav %}
+       <h1 class="text-center">Tout les Articles</h1>
+		       {%for article in articles%}
+					<div class="article">
+                        <h3><a href="{%url 'article' article.id  %}">{{article.titre}}</a> Par {{article.auteur}}</h3>
+
+					</div>
+
+		        {% endfor %}
+    {% endblock %}
