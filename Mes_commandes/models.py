@@ -102,20 +102,9 @@ class Order(models.Model):
         super().save(*args, **kwargs)  # Call the "real" save() method.
 
 
-
-    def __str__(self):
-        return self.nom
-class Product(models.Model):
-    nom = models.CharField(max_length=100, default="")
-    quantity = models.IntegerField()
-    code = models.CharField(max_length=10, default="")
-
-    def __str__(self):
-        return self.nom
-
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
-    product = models.ForeignKey('Product', on_delete=models.CASCADE, blank=True, null=True)
+   # product = models.ForeignKey(Product, related_name='order_items', on_delete=models.CASCADE)
     code = models.CharField(max_length=10, default="")
     nom = models.CharField(max_length=100, default="")
     vendeur = models.CharField(max_length=100, default="")
