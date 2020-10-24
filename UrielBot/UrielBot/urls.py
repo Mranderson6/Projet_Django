@@ -26,3 +26,4 @@ urlpatterns = [
     url('^$', index, name='index'),
     url(r'^accueil/', include('Accueil.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

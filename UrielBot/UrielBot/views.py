@@ -7,4 +7,4 @@ from datetime import datetime
 def index (request):
     message = 'accueil'
 
-    return HttpResponse(message)
+    return render(request, 'index.html')
